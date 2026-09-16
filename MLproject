@@ -1,0 +1,31 @@
+name: ecommerce-churn
+
+python_env: python_env.yaml
+
+entry_points:
+  prepare:
+    command: "python -m churn.data.make_dataset"
+
+  features:
+    command: "python -m churn.features.build_features"
+
+  train:
+    parameters:
+      model: { type: string, default: "lightgbm" }
+      threshold: { type: float, default: 0.5 }
+    command: "python -m churn.models.train_model --model {model} --threshold {threshold}"
+
+  sweep:
+    command: "python -m churn.models.train_model --sweep"
+
+  train_all:
+    command: "python -m churn.models.train_model --all --sweep --register"
+
+  predict:
+    parameters:
+      input_path: { type: string, default: "data/processed/test.parquet" }
+      alias: { type: string, default: "champion" }
+    command: "python -m churn.models.predict_model --input {input_path} --alias {alias}"
+
+  main:
+    command: "python -m churn.data.make_dataset && python -m churn.features.build_features && python -m churn.models.train_model --all --sweep --register"
