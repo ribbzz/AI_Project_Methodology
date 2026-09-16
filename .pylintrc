@@ -1,0 +1,16 @@
+[MAIN]
+init-hook='import sys; sys.path.insert(0, "src")'
+ignore=mlruns,data,docs
+
+[FORMAT]
+max-line-length=100
+
+[MESSAGES CONTROL]
+disable=
+    too-many-arguments,
+    too-many-locals,
+    duplicate-code,
+    wrong-import-position
+
+[BASIC]
+good-names=x_train,x_test,y_train,y_test,df,ax,k

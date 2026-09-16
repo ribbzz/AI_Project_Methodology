@@ -1,0 +1,14 @@
+# Runtime dependencies. The authoritative source is pyproject.toml (Poetry);
+# this file exists so that `mlflow run .` and `pip install -r` also work.
+pandas>=2.2,<3
+numpy>=2.1,<3
+scikit-learn>=1.5,<2
+lightgbm>=4.5,<5
+mlflow>=3.1,<4
+matplotlib>=3.9,<4
+openpyxl>=3.1,<4
+pyarrow>=17
+joblib>=1.4
+# serving (mlflow models serve)
+uvicorn>=0.30
+fastapi>=0.110
