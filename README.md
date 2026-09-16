@@ -1,5 +1,7 @@
 # E-Commerce Customer Churn Prediction
 
+[![CI](https://github.com/ribbzz/AI_Project_Methodology/actions/workflows/ci.yml/badge.svg)](https://github.com/ribbzz/AI_Project_Methodology/actions/workflows/ci.yml)
+
 EPITA International Programs - **AI Project Methodology 2026**, graded project part 2.
 Group: **Rabeeh Abou Ismail, Amjad Bsat, Majd Hammoud**.
 
@@ -11,6 +13,9 @@ packaging, model registry and serving.
 
 > Model performance is not the goal of this project (see the brief). The goal is
 > the engineering practice around the model.
+
+**Reports:** [Part 1 - functional framing](reports/AI_PM_Graded_Project_Part1.pdf) ·
+[Part 2 - technical implementation](reports/AI_PM_Graded_Project_Part2.pdf)
 
 ## Dataset
 
