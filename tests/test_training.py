@@ -33,6 +33,9 @@ def fixture_frames():
 def fixture_tracking(tmp_path):
     """Isolated MLflow store so tests never touch the project runs."""
     mlflow.set_tracking_uri(f"sqlite:///{tmp_path / 'mlflow.db'}")
+    # The artefact root must be redirected too, or runs land in the project's
+    # own mlruns/ directory even though the database is temporary.
+    mlflow.create_experiment("test", artifact_location=str(tmp_path / "mlruns"))
     mlflow.set_experiment("test")
     yield
     mlflow.set_tracking_uri(config.TRACKING_URI)
