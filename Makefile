@@ -1,4 +1,4 @@
-.PHONY: help install data features train train-all predict sweep relocate ui serve score docs lint format test all clean
+.PHONY: help install data features train train-all predict explain sweep relocate ui serve score docs lint format test all clean
 
 PYTHON ?= python
 PORT   ?= 5001
@@ -28,6 +28,9 @@ sweep:  ## Run only the LightGBM hyper-parameter sweep
 predict:  ## Score the test split with the champion model
 	$(PYTHON) -m churn.models.predict_model
 
+explain:  ## Explain the champion model with SHAP (part 3)
+	$(PYTHON) -m churn.models.explain $(if $(CUSTOMER),--customer $(CUSTOMER),)
+
 relocate:  ## Point the committed MLflow store at this checkout
 	$(PYTHON) scripts/relocate_mlflow.py
 
@@ -54,7 +57,7 @@ format:  ## Reformat with black
 test:  ## Run the test suite
 	pytest --cov=churn --cov-report=term-missing
 
-all: data features train-all predict  ## Run the whole pipeline end to end
+all: data features train-all predict explain  ## Run the whole pipeline end to end
 
 clean:  ## Remove generated data, models and docs
 	rm -rf data/interim/* data/processed/* models/*.joblib docs/build mlflow.db mlruns

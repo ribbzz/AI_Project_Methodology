@@ -19,7 +19,7 @@ entry_points:
     command: "python -m churn.models.train_model --sweep"
 
   train_all:
-    command: "python -m churn.models.train_model --all --sweep --register"
+    command: "python -m churn.models.train_model --all --sweep --register && python -m churn.models.explain"
 
   predict:
     parameters:
@@ -27,5 +27,10 @@ entry_points:
       alias: { type: string, default: "champion" }
     command: "python -m churn.models.predict_model --input {input_path} --alias {alias}"
 
+  explain:
+    parameters:
+      customer: { type: string, default: "" }
+    command: "python -m churn.models.explain {customer}"
+
   main:
-    command: "python -m churn.data.make_dataset && python -m churn.features.build_features && python -m churn.models.train_model --all --sweep --register"
+    command: "python -m churn.data.make_dataset && python -m churn.features.build_features && python -m churn.models.train_model --all --sweep --register && python -m churn.models.explain"
