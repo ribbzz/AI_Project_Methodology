@@ -31,6 +31,11 @@ Inference
 
 .. automodule:: churn.models.predict_model
 
+Explainability (SHAP)
+---------------------
+
+.. automodule:: churn.models.explain
+
 Visualisation
 -------------
 

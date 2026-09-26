@@ -30,6 +30,10 @@ separate command:
    * - Inference
      - ``python -m churn.models.predict_model``
      - Scores customers with the champion model and assigns a risk band.
+   * - Explainability
+     - ``python -m churn.models.explain``
+     - Computes Shapley values with a SHAP TreeExplainer and writes the
+       global, per-class and per-customer explanations.
 
 .. toctree::
    :maxdepth: 2

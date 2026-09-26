@@ -23,6 +23,7 @@ Every step has a ``make`` target::
     make features    # fit the preprocessor
     make train-all   # train all candidates, register the best
     make predict     # score the test split
+    make explain     # SHAP explanations (part 3)
     make ui          # open the MLflow tracking UI
 
 or run the whole thing at once::
@@ -48,6 +49,16 @@ The registered champion model is served on a local REST endpoint::
 
 The endpoint accepts the standard MLflow ``dataframe_split`` payload and
 returns one churn probability per row.
+
+Explainability
+--------------
+
+``make explain`` builds a SHAP ``TreeExplainer`` on the registered champion and
+writes every figure to ``reports/figures/shap/`` plus per-customer reason codes
+to ``reports/predictions_with_reasons.csv``::
+
+    make explain                     # highest-risk customer
+    make explain CUSTOMER=54023      # a specific customer
 
 Quality gates
 -------------

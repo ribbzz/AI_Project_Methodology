@@ -25,7 +25,7 @@ autodoc_default_options = {
     "show-inheritance": True,
     "member-order": "bysource",
 }
-autodoc_mock_imports = ["mlflow", "lightgbm"]
+autodoc_mock_imports = ["mlflow", "lightgbm", "shap"]
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False
 
