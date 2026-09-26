@@ -1,0 +1,6 @@
+attribute,group,customers,mean_abs_shap_of_attribute,selection_rate,disparate_impact,parity_difference,actual_churn_rate
+Gender,Female,428,0.205,0.1636,0.951,-0.0052,0.1612
+Gender,Male,698,0.205,0.1719,1.0,0.0032,0.1734
+MaritalStatus,Divorced,182,0.328,0.1758,0.662,0.0071,0.1703
+MaritalStatus,Married,575,0.328,0.1043,0.393,-0.0644,0.1026
+MaritalStatus,Single,369,0.328,0.2656,1.0,0.0968,0.271
